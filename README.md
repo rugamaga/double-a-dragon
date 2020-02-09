@@ -15,5 +15,5 @@ Euchaetaさん [@euchaeta](https://twitter.com/euchaeta) の blog記事( https:/
 3. 以下のようなコマンドを実行します
 
 ```
-GOOGLE_APPLICATION_CREDENTIALS=<サービスアカウントキーへのパス> PROJECT_ID=<GCPのプロジェクトID> ruby double-a-dragon.rb
+GOOGLE_APPLICATION_CREDENTIALS=<サービスアカウントキーへのパス> ruby double-a-dragon.rb
 ```

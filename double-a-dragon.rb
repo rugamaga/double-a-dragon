@@ -18,9 +18,6 @@ require "google/cloud/translate"
 # (使わないけど引き出しておいて設定項目であることを可視にしておきます)
 GOOGLE_APPLICATION_CREDENTIALS = ENV['GOOGLE_APPLICATION_CREDENTIALS']
 
-# 利用するTranslateAPIを設置したGCPのPROJECT_ID
-PROJECT_ID = ENV['PROJECT_ID']
-
 # 初期生成する文字列のサイズ
 # ひらがなを乱数で適当にこの文字数まで並べます
 TEXT_SIZE = 300
@@ -43,7 +40,7 @@ CANDIDATES = %w(
 # 何回まで翻訳ループするか
 # 元ブログでは100回回してるようなのですが
 # 実際には10回くらいでもう収束してそうです
-MAX_LOOP = 100
+MAX_LOOP = 10
 
 # ---------------- ランダム文字列を生成
 samples = (0..TEXT_SIZE).map { CANDIDATES.sample }
@@ -52,7 +49,7 @@ original = samples.join('')
 puts "元テキスト: #{original}"
 
 # ---------------- TranslateAPIをループ
-client = Google::Cloud::Translate.new version: :v2, project_id: PROJECT_ID
+client = Google::Cloud::Translate.new version: :v2
 
 current_ja = original
 current_en = ''
